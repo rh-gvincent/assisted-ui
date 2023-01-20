@@ -5,12 +5,15 @@ import { init } from './store';
 import App from './App';
 import { getBaseName } from '@redhat-cloud-services/frontend-components-utilities/helpers';
 import logger from 'redux-logger';
+import { OCM } from './assisted-ui-lib';
 
 const AppEntry = () => (
   <Provider store={init(...(process.env.NODE_ENV !== 'production' ? [logger] : [])).getStore()}>
-    <Router basename={getBaseName(window.location.pathname)}>
-      <App />
-    </Router>
+    <Provider store={OCM.Store.store}>
+      <Router basename={getBaseName(window.location.pathname)}>
+        <App />
+      </Router>
+    </Provider>
   </Provider>
 );
 

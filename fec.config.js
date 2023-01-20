@@ -12,4 +12,9 @@ module.exports = {
    */
   plugins: [],
   _unstableHotReload: process.env.HOT === 'true',
+  routes: {
+    '/mockdata': {
+      host: 'http://prod.foo.redhat.com:8010',
+    },
+  },
 };
