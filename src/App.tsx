@@ -8,8 +8,10 @@ import { getRegistry } from '@redhat-cloud-services/frontend-components-utilitie
 import NotificationsPortal from '@redhat-cloud-services/frontend-components-notifications/NotificationPortal';
 import { notificationsReducer } from '@redhat-cloud-services/frontend-components-notifications/redux';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
-import { Router } from './assisted-ui-lib/ocm';
-import { SINGLE_CLUSTER_ENABLED_FEATURES } from './assisted-ui-lib/common';
+import { Router, Api } from './assisted-ui-lib/ocm';
+import { authInterceptor } from './services/apiRequest';
+
+Api.setAuthInterceptor(authInterceptor);
 
 const App = () => {
   const history = useHistory();
@@ -28,7 +30,15 @@ const App = () => {
   return (
     <Fragment>
       <NotificationsPortal />
-      <Router features={SINGLE_CLUSTER_ENABLED_FEATURES} />
+      <Router
+        features={{
+          ASSISTED_INSTALLER_SNO_FEATURE: true,
+          ASSISTED_INSTALLER_OCS_FEATURE: true,
+          ASSISTED_INSTALLER_CNV_FEATURE: true,
+          ASSISTED_INSTALLER_NETWORK_TYPE_SELECTION_FEATURE: true,
+          ASSISTED_INSTALLER_PLATFORM_INTEGRATION_FEATURE: true,
+        }}
+      />
     </Fragment>
   );
 };
