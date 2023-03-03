@@ -23,7 +23,7 @@ const NewClusterPage = () => {
             <PageSection variant={PageSectionVariants.light}>
               <TextContent>
                 <Text component="h1" className="pf-u-display-inline">
-                  Install OpenShift with the Assisted Installer
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta officia animi architecto. Blanditiis dolore eveniet quae in voluptate, omnis placeat. Accusantium, ipsa itaque cupiditate totam sequi impedit explicabo similique ducimus.
                 </Text>
               </TextContent>
             </PageSection>
